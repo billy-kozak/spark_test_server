@@ -8,12 +8,15 @@
 import xml.etree.ElementTree
 import sys
 import os
+import subprocess
 ###############################################################################
 #                                  CONSTANTS                                  #
 ###############################################################################
 POM_FNAME = "pom.xml"
 JAR_FILE_TEMPLATE = "target/%(artifact_id)s-%(version)s.jar"
 XMLNS = "http://maven.apache.org/POM/4.0.0"
+CLASS_PATH_TOOL = "bin/classpath"
+MAIN_CLASS="spark_test_server.Main"
 ###############################################################################
 #                                    CODE                                     #
 ###############################################################################
@@ -46,11 +49,26 @@ def project_jarfile():
 		}
 	)
 
-def become_server(jar_file):
+def get_class_path():
+
+	exe = os.path.join(project_path(), CLASS_PATH_TOOL)
+
+	proc = subprocess.Popen([exe], stdout=subprocess.PIPE)
+
+	out, err = proc.communicate()
+
+	if proc.returncode != 0:
+		raise IOError("Error getting classpath from maven")
+
+	return out
+
+def become_server(jar_file, class_path):
+
+	full_cp = "%s:%s" % (class_path, jar_file)
 
 	os.execvpe(
 		'java',
-		['java', '-jar', jar_file] + sys.argv[1:],
+		['java', '-cp', full_cp, MAIN_CLASS] + sys.argv[1:],
 		os.environ
 	)
 
@@ -70,7 +88,13 @@ if __name__ == '__main__':
 		exit(-1)
 
 	try:
-		become_server(jar_file)
+		class_path = get_class_path()
+	except IOError as e:
+		sys.stderr.write("%s\n" % str(e))
+		exit(-1)
+
+	try:
+		become_server(jar_file, class_path)
 	except OSError as e:
 		sys.stderr.write("%s\n" % str(e))
 		exit(-1)
