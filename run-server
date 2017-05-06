@@ -65,6 +65,10 @@ if __name__ == '__main__':
 		sys.stderri.write("%s\n" % str(e))
 		exit(-1)
 
+	if not os.path.exists(jar_file):
+		sys.stderr.write("Jar file %s not found\n" % jar_file)
+		exit(-1)
+
 	try:
 		become_server(jar_file)
 	except OSError as e:
