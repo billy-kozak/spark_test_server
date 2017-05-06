@@ -1,9 +1,11 @@
 package spark_test_server;
 
+import spark.Spark;
+
 public class Main
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+       Spark.get("/", (req, res) -> "Hello World");
     }
 }
