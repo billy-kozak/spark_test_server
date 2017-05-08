@@ -20,6 +20,7 @@ import spark.Spark;
 class Server implements Runnable {
 
 	private static final String HTML_ROOT = "/html";
+	private static final String COMPONENTS_ROOT = "/components";
 
 	public Server() {
 	}
@@ -27,6 +28,7 @@ class Server implements Runnable {
 	@Override
 	public void run() {
 		Spark.staticFiles.location(HTML_ROOT);
+		Spark.staticFiles.location(COMPONENTS_ROOT);
 
 		Spark.init();
 	}
