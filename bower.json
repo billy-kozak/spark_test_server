@@ -1,0 +1,20 @@
+{
+  "name": "spark_test_server",
+  "homepage": "https://github.com/billy-kozak/spark_test_server",
+  "authors": [
+    "Bill <brkozak@gmail.com>"
+  ],
+  "description": "test server for java spark",
+  "main": "",
+  "license": "Apache 2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
