@@ -15,4 +15,8 @@ class Server implements Runnable {
 
 		Spark.init();
 	}
+
+	public void stop() {
+		Spark.stop();
+	}
 }
