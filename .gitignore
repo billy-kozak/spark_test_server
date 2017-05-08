@@ -4,4 +4,4 @@ target/
 .classpath
 .project
 .settings/
-src/main/resources/components/
+src/main/resources/html/components/
