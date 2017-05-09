@@ -1,0 +1,46 @@
+.quote-box {
+  background-color: white;
+  max-width: 500px;
+  width: 90%;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+.button-table {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+#quote-block {
+  border-width: 0px;
+  margin-top: 15px;
+}
+
+#get-quote {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.animated-button {
+  color: white;
+  border-color: orange;
+  background-color: orange;
+}
+
+.animated-button:hover {
+  opacity: 0.5;
+}
+
+.animated-button:active {
+  opacity:1.0 !important;
+}
+
+.animated-box {
+  border-color: orange;
+  background-color: orange;
+}
+
+.animated-text {
+  color: orange;
+  opacity: 0.0;
+}

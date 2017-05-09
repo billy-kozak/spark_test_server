@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Random Quote Generator</title>
+
+    <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="components/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/quote-gen.css"/>
+
+    <script href="components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="js/quote-gen.js"></script>
+  </head>
+
+  <body>
+
+    <div class="container quote-box">
+      <div class="center-block">
+        <blockquote id='quote-block'>
+        <p>
+          <i class="fa
+                    fa-quote-left
+                    animated-text"></i>
+          <span id="quote" class='animated-text'>
+            PLACE HOLDER TEXT HERE
+          </span>
+          <i class="fa
+                    fa-quote-right
+                    animated-text"></i>
+        </p>
+        </blockquote>
+        <p class="text-right animated-text">
+          - <a href='#'
+               class='animated-text'
+               id="attribution"></a>
+        </p>
+        <table class="button-table">
+          <tr>
+            <th>
+              <a id="twitter"
+                 target="_blank"
+                 href='#'
+                 class="btn
+                        btn-primary
+                        animated-button">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </th>
+            <th style="width: 60%"></th>
+            <th>
+              <button id="get-quote"
+                      class="btn
+                             btn-primary
+                             btn-block
+                             animated-button">
+                New Quote
+              </button>
+            </th>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </body>
+</html>
