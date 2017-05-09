@@ -176,6 +176,11 @@ function update_quote()
   );
 }
 
+function lose_focus()
+{
+  this.blur();
+}
+
 $(document).ready(function()
 {
 
@@ -184,4 +189,5 @@ $(document).ready(function()
   update_quote();
 
   $('#get-quote').on('click', update_quote);
+  $('#get-quote').on('click', lose_focus);
 });
